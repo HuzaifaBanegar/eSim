@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eSim</title>
+  </head>
+  <style>
+    body{
+      background-color: #f3f3f3;
+    }
+    div {
+      margin: 20px auto;
+      width: fit-content;
+      /* padding: 15px 25px; */
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    h3 {
+      font-size: 16px;
+     
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      width: 400px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid black;
+    }
+    #suggestions {
+      display: none;
+      border: 1px solid #ccc;
+      max-height: 300px;
+      overflow-y: scroll;
+      width: 400px;
+      border-radius: 10px;
+      overflow-x: hidden;
+    }
+    #suggestions p {
+      font-family: "Work Sanz";
+      cursor: pointer;
+      padding: 2px 8px;
+    }
+    #suggestions p:hover {
+      background-color: #f9f9f9;
+      width: 100%;
+    }
+    #region-area {
+      width: 60%;
+    }
+    .inner-card {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      height: 15px;
+      align-items: center;
+      position: relative;
+    }
+    .countries,
+    .region {
+      width: 95%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-content: center;
+    }
+    #chips {
+      border-radius: 15px;
+      padding: 0px 20px;
+      width: 85%;
+      background-color: white;
+      text-align: left;
+    }
+    #viewAll {
+      margin: 10px 40%;
+      width: 200px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      background-color: navy;
+      color: white;
+    }
+    #arrow{
+      position: absolute;
+      right:2px;
+      top:2px;
+    }
+    #allCountriesDiv {
+      margin: 20px auto;
+      display: none;
+      width: 70%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 15px 25px;
+    }
+    .switcher {
+      display: flex;
+    }
+    #allRegionalDiv {
+      width: 60%;
+    }
+
+    .switcher-button {
+      padding: 10px 20px;
+      background-color: #f3f3f3;
+      border: none;
+      cursor: pointer;
+      border-radius: 0;
+    }
+
+    .switcher-button.active {
+      background-color: navy;
+      color: white;
+      border-radius: 15px;
+    }
+
+    .switcher-button:not(:last-child) {
+      margin-right: -1px;
+    }
+    
+    #allRegionalDiv {
+      display: none;
+    }
+    .main > p{
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <input
+        type="text"
+        id="destinationInput"
+        placeholder="Search destination"
+      />
+      <div id="suggestions"></div>
+      <p>Popular Destinations: <a href="">UK</a>, <a href="">US</a>, <a href="">Canada</a></p>
+    </div>
+    <div class="switcher">
+      <div class="switcher">
+        <button class="switcher-button active" data-option="local">
+          Local
+        </button>
+        <button class="switcher-button" data-option="regional">Regional</button>
+        <button class="switcher-button" data-option="global">Global</button>
+      </div>
+    </div>
+    <div id="region-area">
+      <h2 style="color: navy; text-align: center">
+        E Sim for popular Destinations
+      </h2>
+      <div class="countries">
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/ES.svg" alt="flag" />
+            <h3>Spain</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/DE.svg" alt="flag" />
+            <h3>Germany</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/US.svg" alt="flag" />
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+            <h3>United State</h3>
+          </div>
+        </div>
+      </div>
+      <div class="region">
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <h3>Europe</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <h3>Asia-Pacific</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <h3>Global</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+      </div>
+      <button id="viewAll">Show All Destinations</button>
+    </div>
+    <div id="allCountriesDiv"></div>
+    <div id="allRegionalDiv">
+      <div class="region">
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <h3>Latin-America</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+            <h3>Asia-Pacific</h3>
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <h3>MENA</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+        <div id="chips">
+          <div class="inner-card">
+            <img src="/utils/world.svg" alt="flag" />
+            <h3>Europe+</h3>
+            <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //All countries
+      const countries = {
+        AF: "Afghanistan",
+        AL: "Albania",
+        DZ: "Algeria",
+        AS: "American Samoa",
+        AD: "Andorra",
+        AR: "Argentina",
+        AM: "Armenia",
+        AW: "Aruba",
+        AU: "Australia",
+        AT: "Austria",
+        BH: "Bahrain",
+        BD: "Bangladesh",
+        BE: "Belgium",
+        BJ: "Benin",
+        BM: "Bermuda",
+        BO: "Bolivia",
+        BQ: "Bonaire, Sint Eustatius and Saba",
+        BA: "Bosnia and Herzegovina",
+        BW: "Botswana",
+        BR: "Brazil",
+        VG: "British Virgin Islands",
+        BN: "Brunei",
+        BG: "Bulgaria",
+        KH: "Cambodia",
+        CM: "Cameroon",
+        CA: "Canada",
+        TD: "Chad",
+        CL: "Chile",
+        CN: "China",
+        CO: "Colombia",
+        CG: "Congo",
+        CR: "Costa Rica",
+        HR: "Croatia",
+        CW: "Curaçao",
+        CY: "Cyprus",
+        CZ: "Czech Republic",
+        CD: "Democratic Republic of the Congo",
+        DK: "Denmark",
+        DO: "Dominican Republic",
+        EC: "Ecuador",
+        EG: "Egypt",
+        SV: "El Salvador",
+        EE: "Estonia",
+        FO: "Faroe Islands",
+        FJ: "Fiji",
+        FI: "Finland",
+        FR: "France",
+        GF: "French Guiana",
+        GA: "Gabon",
+        GB: "United Kingdom",
+        GE: "Georgia",
+        DE: "Germany",
+        GH: "Ghana",
+        GI: "Gibraltar",
+        GR: "Greece",
+        GP: "Guadeloupe",
+        GT: "Guatemala",
+        GG: "Guernsey",
+        GN: "Guinea",
+        GY: "Guyana",
+        HN: "Honduras",
+        HK: "Hong Kong",
+        HU: "Hungary",
+        IS: "Iceland",
+        IN: "India",
+        ID: "Indonesia",
+        IR: "Iran",
+        IQ: "Iraq",
+        IE: "Ireland",
+        IM: "Isle of Man",
+        IL: "Israel",
+        IT: "Italy",
+        CI: "Ivory Coast",
+        JP: "Japan",
+        JE: "Jersey",
+        JO: "Jordan",
+        KZ: "Kazakhstan",
+        KE: "Kenya",
+        KW: "Kuwait",
+        KG: "Kyrgyzstan",
+        LV: "Latvia",
+        LS: "Lesotho",
+        LR: "Liberia",
+        LI: "Liechtenstein",
+        LT: "Lithuania",
+        LU: "Luxembourg",
+        MO: "Macao",
+        MG: "Madagascar",
+        MW: "Malawi",
+        MY: "Malaysia",
+        MT: "Malta",
+        YT: "Mayotte",
+        MX: "Mexico",
+        MD: "Moldova",
+        MC: "Monaco",
+        ME: "Montenegro",
+        MA: "Morocco",
+        MZ: "Mozambique",
+        NR: "Nauru",
+        NP: "Nepal",
+        NL: "Netherlands",
+        NZ: "New Zealand",
+        NI: "Nicaragua",
+        NE: "Niger",
+        NG: "Nigeria",
+        MK: "North Macedonia",
+        MP: "Northern Mariana Islands",
+        NO: "Norway",
+        OM: "Oman",
+        PK: "Pakistan",
+        PS: "Palestine",
+        PA: "Panama",
+        PG: "Papua New Guinea",
+        PY: "Paraguay",
+        PE: "Peru",
+        PH: "Philippines",
+        PL: "Poland",
+        PT: "Portugal",
+        PR: "Puerto Rico",
+        QA: "Qatar",
+        RE: "Réunion",
+        RO: "Romania",
+        RU: "Russia",
+        RW: "Rwanda",
+        BL: "Saint Barthélemy",
+        MF: "Saint Martin (French part)",
+        WS: "Samoa",
+        SA: "Saudi Arabia",
+        RS: "Serbia",
+        SC: "Seychelles",
+        SL: "Sierra Leone",
+        SG: "Singapore",
+        SX: "Sint Maarten (Dutch part)",
+        SK: "Slovakia",
+        SI: "Slovenia",
+        ZA: "South Africa",
+        KR: "South Korea",
+        SS: "South Sudan",
+        ES: "Spain",
+        LK: "Sri Lanka",
+        SD: "Sudan",
+        SR: "Suriname",
+        SZ: "Swaziland",
+        SE: "Sweden",
+        CH: "Switzerland",
+        TW: "Taiwan",
+        TZ: "Tanzania",
+        TH: "Thailand",
+        TT: "Trinidad and Tobago",
+        TN: "Tunisia",
+        TR: "Turkey",
+        UG: "Uganda",
+        UA: "Ukraine",
+        AE: "United Arab Emirates",
+        US: "United States",
+        UY: "Uruguay",
+        UZ: "Uzbekistan",
+        VU: "Vanuatu",
+        VA: "Vatican City",
+        VN: "Vietnam",
+        ZM: "Zambia",
+      };
+
+      //Switcher
+      const switcherButtons = document.querySelectorAll(".switcher-button");
+
+      switcherButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          switcherButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+          const selectedOption = button.dataset.option;
+          console.log(`Selected option: ${selectedOption}`);
+          if (selectedOption === "local") {
+            const chipsContainer = document.getElementById("allCountriesDiv");
+            chipsContainer.style.display = "none";
+            document.getElementById("region-area").style.display = "block";
+            document.getElementById("allRegionalDiv").style.display = "none";
+          } else if (selectedOption === "regional") {
+            const chipsContainer = document.getElementById("allCountriesDiv");
+            chipsContainer.style.display = "none";
+            document.getElementById("region-area").style.display = "none";
+            document.getElementById("allRegionalDiv").style.display = "block";
+          }
+        });
+      });
+
+      //Local destinations
+      const input = document.getElementById("destinationInput");
+      const suggestions = document.getElementById("suggestions");
+      const button = document.getElementById("viewAll");
+      button.addEventListener("click", function () {
+        // window.location.href="destinations.html"
+        document.getElementById("region-area").style.display = "none";
+
+        const countryValues = Object.values(countries);
+
+        const chipsContainer = document.getElementById("allCountriesDiv");
+        chipsContainer.style.display = "grid";
+        countryValues.forEach((country, index) => {
+          const button = document.createElement("button");
+          button.id = "chips";
+          button.style.border="none"
+          button.innerHTML = `<div class="inner-card"><img src="/utils/${
+            Object.keys(countries)[index]
+          }.svg" alt="flag"><h3>${country}</h3>
+          <img src="/utils/arrow.svg" id="arrow" alt="flag" />
+          </div>`;
+          // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
+          button.addEventListener("click", () => {
+            console.log(Object.keys(countries)[index]);
+          });
+          chipsContainer.appendChild(button);
+        });
+      });
+
+      //Input box and auto suggestions
+      input.addEventListener("input", function () {
+        suggestions.style.display = "block";
+        suggestions.style.position = "absolute";
+        suggestions.style.top = "40px";
+        suggestions.style.background = "white";
+        const value = this.value.trim().toLowerCase(); // Convert input value to lowercase for case-insensitive comparison
+        const filteredCountries = Object.values(countries).filter((country) =>
+          country.toLowerCase().startsWith(value)
+        );
+        suggestions.innerHTML = "";
+        filteredCountries.forEach((country) => {
+          const option = document.createElement("p");
+          option.textContent = country;
+          option.addEventListener("click", function () {
+            suggestions.style.display = "none";
+            console.log(country);
+          });
+          suggestions.appendChild(option);
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !event.target.closest("#suggestions") &&
+          !event.target.closest("#destinationInput")
+        ) {
+          suggestions.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
