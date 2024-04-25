@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eSim</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <style>
-    body{
-      background-color: #FFFFFF;
+    body {
+      background-color: #ffffff;
+      color: #283249;
+      font-family: "Work Sans", sans-serif;
     }
     div {
       margin: 20px auto;
@@ -16,10 +26,11 @@
     }
     h2 {
       margin-top: 40px;
+      font-family: "Poppins", sans-serif;
     }
     h3 {
       font-size: 16px;
-     
+      
     }
     .main {
       display: flex;
@@ -52,6 +63,9 @@
     #region-area {
       width: 60%;
     }
+    a {
+      color: #f73759;
+    }
     .inner-card {
       display: flex;
       gap: 10px;
@@ -72,7 +86,7 @@
       border-radius: 15px;
       padding: 0px 20px;
       width: 85%;
-      border:0.5px solid black;
+      border: 0.5px solid black;
       text-align: left;
     }
     #viewAll {
@@ -81,13 +95,13 @@
       padding: 10px 20px;
       border-radius: 20px;
       border: none;
-      background-color: navy;
+      background-color: #f73759;
       color: white;
     }
-    #arrow{
+    #arrow {
       position: absolute;
-      right:2px;
-      top:2px;
+      right: 2px;
+      top: 2px;
     }
     #allCountriesDiv {
       margin: 20px auto;
@@ -103,17 +117,16 @@
     #allRegionalDiv {
       width: 60%;
     }
-
     .switcher-button {
       padding: 10px 20px;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       border: none;
       cursor: pointer;
       border-radius: 0;
     }
 
     .switcher-button.active {
-      background-color: navy;
+      background-color: #f73759;
       color: white;
       border-radius: 15px;
     }
@@ -121,7 +134,7 @@
     #allRegionalDiv {
       display: none;
     }
-    .main > p{
+    .main > p {
       text-align: center;
       font-size: 14px;
     }
@@ -134,7 +147,10 @@
         placeholder="Search destination"
       />
       <div id="suggestions"></div>
-      <p>Popular Destinations: <a href="">UK</a>, <a href="">US</a>, <a href="">Canada</a></p>
+      <p>
+        Popular Destinations: <a href="">UK</a>, <a href="">US</a>,
+        <a href="">Canada</a>
+      </p>
     </div>
     <div class="switcher">
       <div class="switcher">
@@ -146,7 +162,7 @@
       </div>
     </div>
     <div id="region-area">
-      <h2 style="color: navy; text-align: center">
+      <h2 style="color: #283249; text-align: center; ">
         E Sim for popular Destinations
       </h2>
       <div class="countries">
@@ -435,8 +451,8 @@
         countryValues.forEach((country, index) => {
           const button = document.createElement("button");
           button.id = "chips";
-          button.style.background="#FFFFFF"
-          button.style.border="0.5px solid black"
+          button.style.background = "#FFFFFF";
+          button.style.border = "0.5px solid black";
           button.innerHTML = `<div class="inner-card"><img src="/utils/${
             Object.keys(countries)[index]
           }.svg" alt="flag"><h3>${country}</h3>
