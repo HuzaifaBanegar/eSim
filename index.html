@@ -7,7 +7,7 @@
   </head>
   <style>
     body{
-      background-color: #f3f3f3;
+      background-color: #FFFFFF;
     }
     div {
       margin: 20px auto;
@@ -72,7 +72,7 @@
       border-radius: 15px;
       padding: 0px 20px;
       width: 85%;
-      background-color: white;
+      border:0.5px solid black;
       text-align: left;
     }
     #viewAll {
@@ -106,7 +106,7 @@
 
     .switcher-button {
       padding: 10px 20px;
-      background-color: #f3f3f3;
+      background-color: #FFFFFF;
       border: none;
       cursor: pointer;
       border-radius: 0;
@@ -118,10 +118,6 @@
       border-radius: 15px;
     }
 
-    .switcher-button:not(:last-child) {
-      margin-right: -1px;
-    }
-    
     #allRegionalDiv {
       display: none;
     }
@@ -439,7 +435,8 @@
         countryValues.forEach((country, index) => {
           const button = document.createElement("button");
           button.id = "chips";
-          button.style.border="none"
+          button.style.background="#FFFFFF"
+          button.style.border="0.5px solid black"
           button.innerHTML = `<div class="inner-card"><img src="/utils/${
             Object.keys(countries)[index]
           }.svg" alt="flag"><h3>${country}</h3>
