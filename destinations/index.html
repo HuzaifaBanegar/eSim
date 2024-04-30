@@ -135,22 +135,32 @@
         width: 300px;
         padding: 5px 10px;
       }
+      #chips {
+        padding: 0px 5px;
+      }
       #allCountriesDiv {
         margin: 20px auto;
         display: grid;
         width: 90%;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
         padding: 5px 10px;
       }
       h3 {
-        font-size: 12px;
+        font-size: 10px;
       }
       #allRegionalDiv {
         width: 80%;
       }
       #suggestions {
         width: 300px;
+      }
+      #arrow {
+        display: none;
+      }
+      .inner-card>img{
+        height: 15px;
+        width: 15px;
       }
     }
   </style>
@@ -210,7 +220,6 @@
         </div>
       </div>
     </div>
-
     <script>
       //All countries
       const countries = {
