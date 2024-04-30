@@ -29,7 +29,6 @@
     }
     h3 {
       font-size: 16px;
-      
     }
     .main {
       display: flex;
@@ -89,15 +88,7 @@
       border: 0.5px solid black;
       text-align: left;
     }
-    #viewAll {
-      margin: 10px 40%;
-      width: 200px;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: none;
-      background-color: #f73759;
-      color: white;
-    }
+
     #arrow {
       position: absolute;
       right: 2px;
@@ -138,6 +129,30 @@
       text-align: center;
       font-size: 14px;
     }
+
+    @media only screen and (max-width: 500px) {
+      input {
+        width: 300px;
+        padding: 5px 10px;
+      }
+      #allCountriesDiv {
+        margin: 20px auto;
+        display: grid;
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 5px 10px;
+      }
+      h3 {
+        font-size: 12px;
+      }
+      #allRegionalDiv {
+        width: 80%;
+      }
+      #suggestions {
+        width: 300px;
+      }
+    }
   </style>
   <body>
     <div class="main">
@@ -161,7 +176,7 @@
         <button class="switcher-button" data-option="global">Global</button>
       </div>
     </div>
-   
+
     <div id="allCountriesDiv"></div>
     <div id="allRegionalDiv">
       <div class="region">
@@ -373,12 +388,12 @@
           console.log(`Selected option: ${selectedOption}`);
           if (selectedOption === "local") {
             const chipsContainer = document.getElementById("allCountriesDiv");
-            chipsContainer.style.display = "grid"; 
+            chipsContainer.style.display = "grid";
             document.getElementById("allRegionalDiv").style.display = "none";
           } else if (selectedOption === "regional") {
             const chipsContainer = document.getElementById("allCountriesDiv");
             chipsContainer.style.display = "none";
-            
+
             document.getElementById("allRegionalDiv").style.display = "block";
           }
         });
@@ -387,28 +402,28 @@
       //Local destinations
       const input = document.getElementById("destinationInput");
       const suggestions = document.getElementById("suggestions");
-     
-        const countryValues = Object.values(countries);
 
-        const chipsContainer = document.getElementById("allCountriesDiv");
-        chipsContainer.style.display = "grid";
-        countryValues.forEach((country, index) => {
-          const button = document.createElement("button");
-          button.id = "chips";
-          button.style.background = "#FFFFFF";
-          button.style.border = "0.5px solid black";
-          button.style.fontFamily=`Poppins`
-          button.innerHTML = `<div class="inner-card"><img src="/utils/${
-            Object.keys(countries)[index]
-          }.svg" alt="flag"><h3>${country}</h3>
+      const countryValues = Object.values(countries);
+
+      const chipsContainer = document.getElementById("allCountriesDiv");
+      chipsContainer.style.display = "grid";
+      countryValues.forEach((country, index) => {
+        const button = document.createElement("button");
+        button.id = "chips";
+        button.style.background = "#FFFFFF";
+        button.style.border = "0.5px solid black";
+        button.style.fontFamily = `Poppins`;
+        button.innerHTML = `<div class="inner-card"><img src="/utils/${
+          Object.keys(countries)[index]
+        }.svg" alt="flag"><h3>${country}</h3>
           <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>`;
-          // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
-          button.addEventListener("click", () => {
-            console.log(Object.keys(countries)[index]);
-          });
-          chipsContainer.appendChild(button);
+        // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
+        button.addEventListener("click", () => {
+          console.log(Object.keys(countries)[index]);
         });
+        chipsContainer.appendChild(button);
+      });
 
       //Input box and auto suggestions
       input.addEventListener("input", function () {
