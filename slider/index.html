@@ -96,12 +96,16 @@
 
     /* Mobile version */
     @media (max-width: 500px) {
+      .carousel {
+        width: 90%;
+      }
+
       .carousel-item {
         flex: 1 0 100%;
         margin: 0;
         opacity: 1;
         transform: scale(1);
-        height: 500px; /* Ensure full height on mobile */
+        height: auto; /* Let the height adjust based on the image */
       }
 
       .carousel-item.prev,
@@ -115,6 +119,13 @@
 
       .carousel-item.active {
         margin: 0; /* Remove margin on mobile */
+        width: 100%;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: auto; /* Adjust height based on aspect ratio */
+        object-fit: contain; /* Ensure the image fits inside without cropping */
       }
     }
   </style>
@@ -159,14 +170,14 @@
       item.style.transform = "scale(0.7)";
       item.style.opacity = "0.5";
       item.style.zIndex = "1";
-      item.style.height = isMobile ? "500px" : "300px"; // Set height based on screen width
+      item.style.height = isMobile ? "auto" : "300px"; // Set height based on screen width
 
       if (index === currentIndex) {
         item.classList.add("active");
         item.style.transform = "scale(1)";
         item.style.opacity = "1";
         item.style.zIndex = "2";
-        item.style.height = "500px"; // Set active item height
+        item.style.height = isMobile ? "auto" : "500px"; // Set active item height
       } else if (
         !isMobile &&
         index === (currentIndex - 1 + items.length) % items.length
