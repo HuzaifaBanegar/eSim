@@ -17,7 +17,7 @@
     body {
       background-color: #ffffff;
       color: #283249;
-      font-family: "Poppins","Work Sans";
+      font-family: "Poppins", "Work Sans";
     }
     div {
       margin: 20px auto;
@@ -25,7 +25,7 @@
     }
     h2 {
       margin-top: 40px;
-      font-family: "Poppins","Work Sans";
+      font-family: "Poppins", "Work Sans";
     }
     h3 {
       font-size: 16px;
@@ -40,7 +40,7 @@
       border-radius: 20px;
       border: 1px solid black;
     }
-    button{
+    button {
       font-family: "Poppins", "Work Sans";
     }
     #suggestions {
@@ -52,7 +52,7 @@
       border-radius: 10px;
       overflow-x: hidden;
       z-index: 2;
-      font-family: "Poppins","Work Sans";
+      font-family: "Poppins", "Work Sans";
     }
     #suggestions p {
       cursor: pointer;
@@ -84,8 +84,8 @@
       gap: 20px;
       justify-content: center;
     }
-    #destinationInput{
-      font-family: "Poppins","Work Sans";
+    #destinationInput {
+      font-family: "Poppins", "Work Sans";
     }
     #chips {
       border-radius: 15px;
@@ -483,7 +483,8 @@
           </div>`;
         // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
         button.addEventListener("click", () => {
-          console.log(Object.keys(countries)[index]);
+          let destination = country.toLowerCase();
+          window.location.href = `https://esim-free.com/en/destination/${destination}`;
         });
         chipsContainer.appendChild(button);
       });
@@ -504,7 +505,8 @@
           option.textContent = country;
           option.addEventListener("click", function () {
             suggestions.style.display = "none";
-            console.log(country);
+            let destination = country.toLowerCase();
+            window.location.href = `https://esim-free.com/en/destination/${destination}`;
           });
           suggestions.appendChild(option);
         });
