@@ -237,7 +237,7 @@
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips"  onclick="handleRedirect('ocenia')">
+        <div id="chips" onclick="handleRedirect('ocenia')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌏 </span>
             <h3>Ocenia</h3>
@@ -275,11 +275,10 @@
       </div>
     </div>
     <script>
-
       //
-      const handleRedirect=(destination)=>{
+      const handleRedirect = (destination) => {
         window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
-      }
+      };
 
       //All countries
       const countries = {
@@ -489,7 +488,7 @@
           </div>`;
         // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
         button.addEventListener("click", () => {
-          let destination = country.toLowerCase();
+          let destination = country.toLowerCase().replace(/\s/g, "-");
           window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
         });
         chipsContainer.appendChild(button);
@@ -511,7 +510,7 @@
           option.textContent = country;
           option.addEventListener("click", function () {
             suggestions.style.display = "none";
-            let destination = country.toLowerCase();
+            let destination = country.toLowerCase().replace(/\s/g, "-");
             window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
           });
           suggestions.appendChild(option);

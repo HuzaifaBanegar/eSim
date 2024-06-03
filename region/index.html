@@ -354,7 +354,7 @@
           option.textContent = country;
           option.addEventListener("click", function () {
             suggestions.style.display = "none";
-            let destination = country.toLowerCase();
+            let destination = country.toLowerCase().replace(/\s/g, "-");
             window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
           });
           suggestions.appendChild(option);
@@ -386,7 +386,7 @@
                 </div>`;
         // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
         button.addEventListener("click", () => {
-          let destination = country.toLowerCase();
+          let destination = country.toLowerCase().replace(/\s/g, "-");
           window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
         });
         chipsContainer.appendChild(button);
@@ -402,8 +402,8 @@
                 </div>`;
         // button.innerHTML = `<div style="display:flex; gap:10px; width:100%"><img src="/utils/US.svg" alt="flag"><h3>${country}</h3></div>`;
         button.addEventListener("click", () => {
-          let destination = country.toLowerCase();
-            window.location.href = `https://esim-free.com/en/destination/${destination}`;
+          let destination = country.toLowerCase().replace(/\s/g, "-");
+          window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
         });
         chipsContainer.appendChild(button);
       }

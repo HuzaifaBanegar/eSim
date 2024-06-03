@@ -551,7 +551,8 @@
           option.textContent = country;
           option.addEventListener("click", function () {
             suggestions.style.display = "none";
-            console.log(country);
+            let destination = country.toLowerCase().replace(/\s/g, "-");
+            window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
           });
           suggestions.appendChild(option);
         });
