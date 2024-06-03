@@ -210,21 +210,21 @@
         E Sim for popular Destinations
       </h2>
       <div class="countries">
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('spain')">
           <div class="inner-card">
             <img src="/utils/ES.svg" alt="flag" />
             <h3>Spain</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('germany')">
           <div class="inner-card">
             <img src="/utils/DE.svg" alt="flag" />
             <h3>Germany</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('usa')">
           <div class="inner-card">
             <img src="/utils/US.svg" alt="flag" />
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
@@ -233,21 +233,21 @@
         </div>
       </div>
       <div class="region">
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('Europe')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌍 </span>
             <h3>Europe</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('asia')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌏 </span>
             <h3>Asia</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('global')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌎 </span>
             <h3>Global</h3>
@@ -266,70 +266,70 @@
     <!-- <div id="allCountriesDiv"></div> -->
     <div id="allRegionalDiv">
       <div class="region">
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('Europe')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌍 </span>
             <h3>Europe</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('asia')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌏 </span>
             <h3>Asia</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('north-america')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌎 </span>
             <h3>North America</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('caribbian')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌎 </span>
             <h3>Caribbian</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('middle-east')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌍 </span>
             <h3>Middle East</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('ocenia')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌏 </span>
             <h3>Ocenia</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('south-america')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌎 </span>
             <h3>South America</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('south-east-asia')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌏 </span>
             <h3>South East Asia</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('latin-america')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌎 </span>
             <h3>Latin America (LATAM)</h3>
             <img src="/utils/arrow.svg" id="arrow" alt="flag" />
           </div>
         </div>
-        <div id="chips">
+        <div id="chips" onclick="handleRedirect('africa')">
           <div class="inner-card">
             <span class="emoji-flag"> 🌍 </span>
             <h3>Africa</h3>
@@ -340,6 +340,9 @@
     </div>
 
     <script>
+      const handleRedirect = (destination) => {
+        window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
+      };
       //All countries
       const countries = {
         AF: "Afghanistan",
