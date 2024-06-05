@@ -21,6 +21,27 @@
     </style>
 </head>
 <body>
-    <iframe id="myIframe" src="https://gleeful-brigadeiros-def1d6.netlify.app/" ></iframe>
+    <iframe id="myIframe" src="./region/index.html" ></iframe>
+    <script>
+        // Dynamically create the URL with query parameters
+        const countries_suggestions = {
+            BE: "Belgium",
+            GB: "United Kingdom",
+            DE: "Germany",
+            IT: "Italy",
+            JP: "Japan",
+            CN: "China",
+            ES: "Spain",
+            CH: "Switzerland",
+            TH: "Thailand",
+            US: "United States",
+            VN: "Vietnam",
+        };
+        
+        const params = new URLSearchParams(countries_suggestions).toString();
+        const iframeUrl = `./region/index.html?${params}`;
+
+        document.write(`<iframe id="myIframe" src="${iframeUrl}"></iframe>`);
+    </script>
 </body>
 </html>
