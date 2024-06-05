@@ -10,18 +10,21 @@
             padding: 0;
             overflow: hidden;
         }
+        #iframeContainer {
+            width: 100%;
+            height: 550px;
+        }
         #myIframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             border: none;
         }
     </style>
 </head>
 <body>
-    <iframe id="myIframe" src="./region/index.html" ></iframe>
+    <div id="iframeContainer">
+        <iframe id="myIframe"></iframe>
+    </div>
     <script>
         // Dynamically create the URL with query parameters
         const countries_suggestions = {
@@ -39,9 +42,9 @@
         };
         
         const params = new URLSearchParams(countries_suggestions).toString();
-        const iframeUrl = `./region/index.html?${params}`;
+        const iframeUrl = `https://e-sim-k8yj.vercel.app/?${params}`;
 
-        document.write(`<iframe id="myIframe" src="${iframeUrl}"></iframe>`);
+        document.getElementById('myIframe').src = iframeUrl;
     </script>
 </body>
 </html>
