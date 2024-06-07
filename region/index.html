@@ -321,36 +321,38 @@
       };
 
       let countries_suggestions;
-     if(window.location.href==='https://esim-free.com/en/destination/france/'){
+      const location= window.location.href;
+      if (
+       location == "https://esim-free.com/en/destination/france/"
+      ) {
         countries_suggestions = {
-        BE: "Belgium",
-        GB: "United Kingdom",
-        DE: "Germany",
-        IT: "Italy",
-        JP: "Japan",
-        CN: "China",
-        ES: "Spain",
-        CH: "Switzerland",
-        TH: "Thailand",
-        US: "United States",
-        VN: "Vietnam",
-      }; 
-     }else{
+          BE: "Belgium",
+          GB: "United Kingdom",
+          DE: "Germany",
+          IT: "Italy",
+          JP: "Japan",
+          CN: "China",
+          ES: "Spain",
+          CH: "Switzerland",
+          TH: "Thailand",
+          US: "United States",
+          VN: "Vietnam",
+        };
+      } else {
         countries_suggestions = {
-        BE: "Belgium",
-        GB: "United Kingdom",
-        DE: "Germany",
-        IT: "Italy",
-        JP: "Japan",
-        IN: "India",
-        ES: "Spain",
-        CH: "Switzerland",
-        TH: "Thailand",
-        US: "United States",
-        VN: "Vietnam",
-      }; 
-     }
-      
+          BE: "Belgium",
+          GB: "United Kingdom",
+          DE: "Germany",
+          IT: "Italy",
+          JP: "Japan",
+          IN: "India",
+          ES: "Spain",
+          CH: "Switzerland",
+          TH: "Thailand",
+          US: "United States",
+          VN: "Vietnam",
+        };
+      }
 
       const region = "Europe";
       const input = document.getElementById("destinationInput");
