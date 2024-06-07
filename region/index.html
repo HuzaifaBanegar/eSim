@@ -1,397 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>France</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet" />
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <style>
-        body {
-            background-color: #ffffff;
-            color: #283249;
-            font-family: "Poppins", "Work Sans";
-        }
-        #destinationInput {
-            font-family: "Poppins", "Work Sans";
-        }
+      body {
+        background-color: #ffffff;
+        color: #283249;
+        font-family: "Poppins", "Work Sans";
+      }
+      #destinationInput {
+        font-family: "Poppins", "Work Sans";
+      }
 
-        div {
-            margin: 20px auto;
-            width: fit-content;
-        }
-        h2 {
-            margin-top: 40px;
-            font-family: "Poppins", "Work Sans";
-        }
-        h3 {
-            font-size: 16px;
-        }
-        button {
-            font-family: "Poppins", "Work Sans";
-        }
-        .main {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
+      div {
+        margin: 20px auto;
+        width: fit-content;
+      }
+      h2 {
+        margin-top: 40px;
+        font-family: "Poppins", "Work Sans";
+      }
+      h3 {
+        font-size: 16px;
+      }
+      button {
+        font-family: "Poppins", "Work Sans";
+      }
+      .main {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      input {
+        width: 400px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+      #suggestions {
+        position: absolute;
+        display: none;
+        border: 1px solid #ccc;
+        max-height: 200px;
+        overflow-y: scroll;
+        width: 400px;
+        border-radius: 10px;
+        overflow-x: hidden;
+        z-index: 2;
+        font-family: "Poppins", "Work Sans";
+      }
+      #suggestions p {
+        cursor: pointer;
+        padding: 2px 8px;
+      }
+      #suggestions p:hover {
+        background-color: #f9f9f9;
+        width: 100%;
+      }
+      #countries_siggestions {
+        margin: 20px auto;
+        display: grid;
+        width: 80%;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 15px 25px;
+      }
+
+      a {
+        color: #f73759;
+      }
+      .inner-card {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        height: 15px;
+        align-items: center;
+        position: relative;
+      }
+
+      #chips {
+        border-radius: 15px;
+        padding: 0px 20px;
+        width: 85%;
+        border: 0.5px solid black;
+        text-align: left;
+      }
+
+      #arrow {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+      }
+
+      .main > p {
+        text-align: center;
+        font-size: 14px;
+      }
+      span.emoji-flag {
+        font-size: 25px;
+      }
+
+      @media only screen and (max-width: 500px) {
         input {
-            width: 400px;
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: 1px solid black;
-        }
-        #suggestions {
-            position: absolute;
-            display: none;
-            border: 1px solid #ccc;
-            max-height: 200px;
-            overflow-y: scroll;
-            width: 400px;
-            border-radius: 10px;
-            overflow-x: hidden;
-            z-index: 2;
-            font-family: "Poppins", "Work Sans";
-        }
-        #suggestions p {
-            cursor: pointer;
-            padding: 2px 8px;
-        }
-        #suggestions p:hover {
-            background-color: #f9f9f9;
-            width: 100%;
+          width: 300px;
+          padding: 5px 10px;
         }
         #countries_siggestions {
-            margin: 20px auto;
-            display: grid;
-            width: 80%;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            padding: 15px 25px;
+          margin: 20px 0px 0px 30px;
+          display: grid;
+          width: 90%;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2px;
+          padding: 5px 10px;
         }
 
-        a {
-            color: #f73759;
-        }
-        .inner-card {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-            height: 15px;
-            align-items: center;
-            position: relative;
-        }
-
-        #chips {
-            border-radius: 15px;
-            padding: 0px 20px;
-            width: 85%;
-            border: 0.5px solid black;
-            text-align: left;
-        }
-
-        #arrow {
-            position: absolute;
-            right: 2px;
-            top: 2px;
-        }
-
-        .main > p {
-            text-align: center;
-            font-size: 14px;
-        }
         span.emoji-flag {
-            font-size: 25px;
+          font-size: 12px;
         }
 
-        @media only screen and (max-width: 500px) {
-            input {
-                width: 300px;
-                padding: 5px 10px;
-            }
-            #countries_siggestions {
-                margin: 20px 0px 0px 30px;
-                display: grid;
-                width: 90%;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2px;
-                padding: 5px 10px;
-            }
-
-            span.emoji-flag {
-                font-size: 12px;
-            }
-
-            h3 {
-                font-size: 12px;
-            }
-            #suggestions {
-                width: 300px;
-            }
-            #arrow {
-                display: none;
-            }
+        h3 {
+          font-size: 12px;
         }
+        #suggestions {
+          width: 300px;
+        }
+        #arrow {
+          display: none;
+        }
+      }
     </style>
-    <h1 style="text-align: center;">Other eSIMs you might be interested in:​</h1>
+    <h1 style="text-align: center">Other eSIMs you might be interested in:​</h1>
     <div class="main">
-      <input type="text" id="destinationInput" placeholder="Search destination" />
+      <input
+        type="text"
+        id="destinationInput"
+        placeholder="Search destination"
+      />
       <div id="suggestions"></div>
       <p>
-          Popular Destinations: <a href="">UK</a>, <a href="">US</a>,
-          <a href="">Canada</a>
+        Popular Destinations: <a href="">UK</a>, <a href="">US</a>,
+        <a href="">Canada</a>
       </p>
-  </div>
+    </div>
     <div id="countries_siggestions"></div>
     <script>
-        const countries = {
-            AF: "Afghanistan",
-            AL: "Albania",
-            DZ: "Algeria",
-            AS: "American Samoa",
-            AD: "Andorra",
-            AR: "Argentina",
-            AM: "Armenia",
-            AW: "Aruba",
-            AU: "Australia",
-            AT: "Austria",
-            BH: "Bahrain",
-            BD: "Bangladesh",
-            BE: "Belgium",
-            BJ: "Benin",
-            BM: "Bermuda",
-            BO: "Bolivia",
-            BQ: "Bonaire, Sint Eustatius and Saba",
-            BA: "Bosnia and Herzegovina",
-            BW: "Botswana",
-            BR: "Brazil",
-            VG: "British Virgin Islands",
-            BN: "Brunei",
-            BG: "Bulgaria",
-            KH: "Cambodia",
-            CM: "Cameroon",
-            CA: "Canada",
-            TD: "Chad",
-            CL: "Chile",
-            CN: "China",
-            CO: "Colombia",
-            CG: "Congo",
-            CR: "Costa Rica",
-            HR: "Croatia",
-            CW: "Curaçao",
-            CY: "Cyprus",
-            CZ: "Czech Republic",
-            CD: "Democratic Republic of the Congo",
-            DK: "Denmark",
-            DO: "Dominican Republic",
-            EC: "Ecuador",
-            EG: "Egypt",
-            SV: "El Salvador",
-            EE: "Estonia",
-            FO: "Faroe Islands",
-            FJ: "Fiji",
-            FI: "Finland",
-            FR: "France",
-            GF: "French Guiana",
-            GA: "Gabon",
-            GB: "United Kingdom",
-            GE: "Georgia",
-            DE: "Germany",
-            GH: "Ghana",
-            GI: "Gibraltar",
-            GR: "Greece",
-            GP: "Guadeloupe",
-            GT: "Guatemala",
-            GG: "Guernsey",
-            GN: "Guinea",
-            GY: "Guyana",
-            HN: "Honduras",
-            HK: "Hong Kong",
-            HU: "Hungary",
-            IS: "Iceland",
-            IN: "India",
-            ID: "Indonesia",
-            IR: "Iran",
-            IQ: "Iraq",
-            IE: "Ireland",
-            IM: "Isle of Man",
-            IL: "Israel",
-            IT: "Italy",
-            CI: "Ivory Coast",
-            JP: "Japan",
-            JE: "Jersey",
-            JO: "Jordan",
-            KZ: "Kazakhstan",
-            KE: "Kenya",
-            KW: "Kuwait",
-            KG: "Kyrgyzstan",
-            LV: "Latvia",
-            LS: "Lesotho",
-            LR: "Liberia",
-            LI: "Liechtenstein",
-            LT: "Lithuania",
-            LU: "Luxembourg",
-            MO: "Macao",
-            MG: "Madagascar",
-            MW: "Malawi",
-            MY: "Malaysia",
-            MT: "Malta",
-            YT: "Mayotte",
-            MX: "Mexico",
-            MD: "Moldova",
-            MC: "Monaco",
-            ME: "Montenegro",
-            MA: "Morocco",
-            MZ: "Mozambique",
-            NR: "Nauru",
-            NP: "Nepal",
-            NL: "Netherlands",
-            NZ: "New Zealand",
-            NI: "Nicaragua",
-            NE: "Niger",
-            NG: "Nigeria",
-            MK: "North Macedonia",
-            MP: "Northern Mariana Islands",
-            NO: "Norway",
-            OM: "Oman",
-            PK: "Pakistan",
-            PS: "Palestine",
-            PA: "Panama",
-            PG: "Papua New Guinea",
-            PY: "Paraguay",
-            PE: "Peru",
-            PH: "Philippines",
-            PL: "Poland",
-            PT: "Portugal",
-            PR: "Puerto Rico",
-            QA: "Qatar",
-            RE: "Réunion",
-            RO: "Romania",
-            RU: "Russia",
-            RW: "Rwanda",
-            BL: "Saint Barthélemy",
-            MF: "Saint Martin (French part)",
-            WS: "Samoa",
-            SA: "Saudi Arabia",
-            RS: "Serbia",
-            SC: "Seychelles",
-            SL: "Sierra Leone",
-            SG: "Singapore",
-            SX: "Sint Maarten (Dutch part)",
-            SK: "Slovakia",
-            SI: "Slovenia",
-            ZA: "South Africa",
-            KR: "South Korea",
-            SS: "South Sudan",
-            ES: "Spain",
-            LK: "Sri Lanka",
-            SD: "Sudan",
-            SR: "Suriname",
-            SZ: "Swaziland",
-            SE: "Sweden",
-            CH: "Switzerland",
-            TW: "Taiwan",
-            TZ: "Tanzania",
-            TH: "Thailand",
-            TT: "Trinidad and Tobago",
-            TN: "Tunisia",
-            TR: "Turkey",
-            UG: "Uganda",
-            UA: "Ukraine",
-            AE: "United Arab Emirates",
-            US: "United States",
-            UY: "Uruguay",
-            UZ: "Uzbekistan",
-            VU: "Vanuatu",
-            VA: "Vatican City",
-            VN: "Vietnam",
-            ZM: "Zambia",
-        };
+      const countries = {
+        AF: "Afghanistan",
+        AL: "Albania",
+        DZ: "Algeria",
+        AS: "American Samoa",
+        AD: "Andorra",
+        AR: "Argentina",
+        AM: "Armenia",
+        AW: "Aruba",
+        AU: "Australia",
+        AT: "Austria",
+        BH: "Bahrain",
+        BD: "Bangladesh",
+        BE: "Belgium",
+        BJ: "Benin",
+        BM: "Bermuda",
+        BO: "Bolivia",
+        BQ: "Bonaire, Sint Eustatius and Saba",
+        BA: "Bosnia and Herzegovina",
+        BW: "Botswana",
+        BR: "Brazil",
+        VG: "British Virgin Islands",
+        BN: "Brunei",
+        BG: "Bulgaria",
+        KH: "Cambodia",
+        CM: "Cameroon",
+        CA: "Canada",
+        TD: "Chad",
+        CL: "Chile",
+        CN: "China",
+        CO: "Colombia",
+        CG: "Congo",
+        CR: "Costa Rica",
+        HR: "Croatia",
+        CW: "Curaçao",
+        CY: "Cyprus",
+        CZ: "Czech Republic",
+        CD: "Democratic Republic of the Congo",
+        DK: "Denmark",
+        DO: "Dominican Republic",
+        EC: "Ecuador",
+        EG: "Egypt",
+        SV: "El Salvador",
+        EE: "Estonia",
+        FO: "Faroe Islands",
+        FJ: "Fiji",
+        FI: "Finland",
+        FR: "France",
+        GF: "French Guiana",
+        GA: "Gabon",
+        GB: "United Kingdom",
+        GE: "Georgia",
+        DE: "Germany",
+        GH: "Ghana",
+        GI: "Gibraltar",
+        GR: "Greece",
+        GP: "Guadeloupe",
+        GT: "Guatemala",
+        GG: "Guernsey",
+        GN: "Guinea",
+        GY: "Guyana",
+        HN: "Honduras",
+        HK: "Hong Kong",
+        HU: "Hungary",
+        IS: "Iceland",
+        IN: "India",
+        ID: "Indonesia",
+        IR: "Iran",
+        IQ: "Iraq",
+        IE: "Ireland",
+        IM: "Isle of Man",
+        IL: "Israel",
+        IT: "Italy",
+        CI: "Ivory Coast",
+        JP: "Japan",
+        JE: "Jersey",
+        JO: "Jordan",
+        KZ: "Kazakhstan",
+        KE: "Kenya",
+        KW: "Kuwait",
+        KG: "Kyrgyzstan",
+        LV: "Latvia",
+        LS: "Lesotho",
+        LR: "Liberia",
+        LI: "Liechtenstein",
+        LT: "Lithuania",
+        LU: "Luxembourg",
+        MO: "Macao",
+        MG: "Madagascar",
+        MW: "Malawi",
+        MY: "Malaysia",
+        MT: "Malta",
+        YT: "Mayotte",
+        MX: "Mexico",
+        MD: "Moldova",
+        MC: "Monaco",
+        ME: "Montenegro",
+        MA: "Morocco",
+        MZ: "Mozambique",
+        NR: "Nauru",
+        NP: "Nepal",
+        NL: "Netherlands",
+        NZ: "New Zealand",
+        NI: "Nicaragua",
+        NE: "Niger",
+        NG: "Nigeria",
+        MK: "North Macedonia",
+        MP: "Northern Mariana Islands",
+        NO: "Norway",
+        OM: "Oman",
+        PK: "Pakistan",
+        PS: "Palestine",
+        PA: "Panama",
+        PG: "Papua New Guinea",
+        PY: "Paraguay",
+        PE: "Peru",
+        PH: "Philippines",
+        PL: "Poland",
+        PT: "Portugal",
+        PR: "Puerto Rico",
+        QA: "Qatar",
+        RE: "Réunion",
+        RO: "Romania",
+        RU: "Russia",
+        RW: "Rwanda",
+        BL: "Saint Barthélemy",
+        MF: "Saint Martin (French part)",
+        WS: "Samoa",
+        SA: "Saudi Arabia",
+        RS: "Serbia",
+        SC: "Seychelles",
+        SL: "Sierra Leone",
+        SG: "Singapore",
+        SX: "Sint Maarten (Dutch part)",
+        SK: "Slovakia",
+        SI: "Slovenia",
+        ZA: "South Africa",
+        KR: "South Korea",
+        SS: "South Sudan",
+        ES: "Spain",
+        LK: "Sri Lanka",
+        SD: "Sudan",
+        SR: "Suriname",
+        SZ: "Swaziland",
+        SE: "Sweden",
+        CH: "Switzerland",
+        TW: "Taiwan",
+        TZ: "Tanzania",
+        TH: "Thailand",
+        TT: "Trinidad and Tobago",
+        TN: "Tunisia",
+        TR: "Turkey",
+        UG: "Uganda",
+        UA: "Ukraine",
+        AE: "United Arab Emirates",
+        US: "United States",
+        UY: "Uruguay",
+        UZ: "Uzbekistan",
+        VU: "Vanuatu",
+        VA: "Vatican City",
+        VN: "Vietnam",
+        ZM: "Zambia",
+      };
 
-        function getQueryParams() {
-            const params = new URLSearchParams(window.location.search);
-            const suggestions = {};
-            params.forEach((value, key) => {
-                suggestions[key] = value;
-            });
-            return suggestions;
+      const countries_suggestions = {
+        BE: "Belgium",
+        GB: "United Kingdom",
+        DE: "Germany",
+        IT: "Italy",
+        JP: "Japan",
+        IN: "India",
+        ES: "Spain",
+        CH: "Switzerland",
+        TH: "Thailand",
+        US: "United States",
+        VN: "Vietnam",
+      };
+
+      const region = "Europe";
+      const input = document.getElementById("destinationInput");
+      const suggestions = document.getElementById("suggestions");
+
+      // Input box and auto suggestions
+      input.addEventListener("input", function () {
+        suggestions.style.display = "block";
+        suggestions.style.position = "absolute";
+        suggestions.style.top = "40px";
+        suggestions.style.background = "white";
+        const value = this.value.trim().toLowerCase();
+        const filteredCountries = Object.values(countries).filter((country) =>
+          country.toLowerCase().startsWith(value)
+        );
+        suggestions.innerHTML = "";
+        filteredCountries.forEach((country) => {
+          const option = document.createElement("p");
+          option.textContent = country;
+          option.addEventListener("click", function () {
+            suggestions.style.display = "none";
+            let destination = country.toLowerCase().replace(/\s/g, "-");
+            window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
+          });
+          suggestions.appendChild(option);
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !event.target.closest("#suggestions") &&
+          !event.target.closest("#destinationInput")
+        ) {
+          suggestions.style.display = "none";
         }
+      });
 
-        const countries_suggestions = getQueryParams();
-
-        const region = "Europe";
-        const input = document.getElementById("destinationInput");
-        const suggestions = document.getElementById("suggestions");
-
-        // Input box and auto suggestions
-        input.addEventListener("input", function () {
-            suggestions.style.display = "block";
-            suggestions.style.position = "absolute";
-            suggestions.style.top = "40px";
-            suggestions.style.background = "white";
-            const value = this.value.trim().toLowerCase();
-            const filteredCountries = Object.values(countries).filter((country) =>
-                country.toLowerCase().startsWith(value)
-            );
-            suggestions.innerHTML = "";
-            filteredCountries.forEach((country) => {
-                const option = document.createElement("p");
-                option.textContent = country;
-                option.addEventListener("click", function () {
-                    suggestions.style.display = "none";
-                    let destination = country.toLowerCase().replace(/\s/g, "-");
-                    window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
-                });
-                suggestions.appendChild(option);
-            });
-        });
-
-        document.addEventListener("click", function (event) {
-            if (
-                !event.target.closest("#suggestions") &&
-                !event.target.closest("#destinationInput")
-            ) {
-                suggestions.style.display = "none";
-            }
-        });
-
-        const chipsContainer = document.getElementById("countries_siggestions");
-        const countryValues = Object.values(countries_suggestions);
-        chipsContainer.style.display = "grid";
-        countryValues.forEach((country, index) => {
-            const button = document.createElement("button");
-            button.id = "chips";
-            button.style.background = "#FFFFFF";
-            button.style.border = "0.5px solid black";
-            button.style.fontFamily = `Poppins`;
-            button.innerHTML = `<div class="inner-card"><img src="/utils/${
-                Object.keys(countries_suggestions)[index]
-            }.svg" alt="flag"><h3>${country}</h3>
+      const chipsContainer = document.getElementById("countries_siggestions");
+      const countryValues = Object.values(countries_suggestions);
+      chipsContainer.style.display = "grid";
+      countryValues.forEach((country, index) => {
+        const button = document.createElement("button");
+        button.id = "chips";
+        button.style.background = "#FFFFFF";
+        button.style.border = "0.5px solid black";
+        button.style.fontFamily = `Poppins`;
+        button.innerHTML = `<div class="inner-card"><img src="/utils/${
+          Object.keys(countries_suggestions)[index]
+        }.svg" alt="flag"><h3>${country}</h3>
                     <img src="/utils/arrow.svg" id="arrow" alt="" />
                     </div>`;
-            button.addEventListener("click", () => {
-                let destination = country.toLowerCase().replace(/\s/g, "-");
-                window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
-            });
-            chipsContainer.appendChild(button);
+        button.addEventListener("click", () => {
+          let destination = country.toLowerCase().replace(/\s/g, "-");
+          window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
         });
-        if (region == "Europe") {
-            const button = document.createElement("button");
-            button.id = "chips";
-            button.style.background = "#FFFFFF";
-            button.style.border = "0.5px solid black";
-            button.style.fontFamily = `Poppins`;
-            button.innerHTML = `<div class="inner-card"><span class="emoji-flag"> 🌍 </span><h3>Europe</h3>
+        chipsContainer.appendChild(button);
+      });
+      if (region == "Europe") {
+        const button = document.createElement("button");
+        button.id = "chips";
+        button.style.background = "#FFFFFF";
+        button.style.border = "0.5px solid black";
+        button.style.fontFamily = `Poppins`;
+        button.innerHTML = `<div class="inner-card"><span class="emoji-flag"> 🌍 </span><h3>Europe</h3>
                     <img src="/utils/arrow.svg" id="arrow" alt="" />
                     </div>`;
-            button.addEventListener("click", () => {
-                let destination = country.toLowerCase().replace(/\s/g, "-");
-                window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
-            });
-            chipsContainer.appendChild(button);
-        }
+        button.addEventListener("click", () => {
+          let destination = country.toLowerCase().replace(/\s/g, "-");
+          window.top.location.href = `https://esim-free.com/en/destination/${destination}`;
+        });
+        chipsContainer.appendChild(button);
+      }
     </script>
-</body>
+  </body>
 </html>
