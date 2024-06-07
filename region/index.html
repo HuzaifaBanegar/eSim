@@ -321,10 +321,10 @@
       };
 
       let countries_suggestions;
-      const _location= window.top.location.href;
+      const _location= window.top.location.pathname;
       console.log(_location);
       if (
-       _location == "https://esim-free.com/en/destination/france/"
+       _location == "/en/destination/france/"
       ) {
         countries_suggestions = {
           BE: "Belgium",
