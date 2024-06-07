@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eSim</title>
     <style>
-       
-        #iframeContainer {
-            width: 100%;
-            min-height: 550px;
-        }
-        #myIframe2 {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      #myIframe {
+        width: 100vw;
+        border: none;
+        height: 500px;
+      }
+      #iframeContainer {
+        width: 100%;
+        min-height: 550px;
+        margin-top: 40px;
+      }
+      #myIframe2 {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <iframe id="myIframe" src="https://slider-carousal.netlify.app/"></iframe>
     <div id="iframeContainer">
-        <iframe id="myIframe2" src="https://e-sim-k8yj.vercel.app/?country=france"></iframe>
+      <iframe
+        id="myIframe2"
+        src="https://e-sim-k8yj.vercel.app/?country=france"
+      ></iframe>
     </div>
-    
-</body>
+    <!DOCTYPE html>
+  </body>
 </html>
