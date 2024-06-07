@@ -320,7 +320,23 @@
         ZM: "Zambia",
       };
 
-      const countries_suggestions = {
+      let countries_suggestions;
+     if(window.location.href==='https://esim-free.com/en/destination/france/'){
+        countries_suggestions = {
+        BE: "Belgium",
+        GB: "United Kingdom",
+        DE: "Germany",
+        IT: "Italy",
+        JP: "Japan",
+        CN: "China",
+        ES: "Spain",
+        CH: "Switzerland",
+        TH: "Thailand",
+        US: "United States",
+        VN: "Vietnam",
+      }; 
+     }else{
+        countries_suggestions = {
         BE: "Belgium",
         GB: "United Kingdom",
         DE: "Germany",
@@ -332,7 +348,9 @@
         TH: "Thailand",
         US: "United States",
         VN: "Vietnam",
-      };
+      }; 
+     }
+      
 
       const region = "Europe";
       const input = document.getElementById("destinationInput");
