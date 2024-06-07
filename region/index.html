@@ -321,11 +321,19 @@
       };
 
       let countries_suggestions;
-      const _location= window.top.location.pathname;
-      console.log(_location);
-      if (
-       _location == "/en/destination/france/"
-      ) {
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      // Use the function to get the 'country' parameter
+      var country = getUrlParameter("country");
+      console.log(country)
+      if (country == "france") {
         countries_suggestions = {
           BE: "Belgium",
           GB: "United Kingdom",
