@@ -172,16 +172,17 @@
       }
       .countries {
         width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        margin: 0px 8px;
+        grid-template-columns: repeat(3, 100px);
+        gap: 40px;
+        justify-content: center;
+        margin: 0px -10px;
       }
       .region {
         width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-
-        margin: 0px 10px;
+        grid-template-columns: repeat(3, 100px);
+        gap: 40px;
+        justify-content: center;
+        margin: 0px -10px;
       }
     }
   </style>
